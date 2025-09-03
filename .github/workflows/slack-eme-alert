@@ -1,0 +1,26 @@
+name: Slack Alert on .eme File Changes
+
+on:
+  push:
+    paths:
+      - '**/*.eme'   # ✅ only trigger if .eme files are modified
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Send Slack alert
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
+          SLACK_USERNAME: "GitHub Bot"
+          SLACK_TITLE: "🚨 .eme file modified"
+          SLACK_MESSAGE: |
+            *Repo:* ${{ github.repository }}
+            *Branch:* ${{ github.ref_name }}
+            *Commit:* ${{ github.sha }}
+            *Actor:* ${{ github.actor }}
+            *Message:* ${{ github.event.head_commit.message }}
