@@ -19,7 +19,7 @@ jobs:
       - name: Notify Slack of .eme file change
         uses: act10ns/slack@v2
         with:
-          channel: 'Notify Slack of .eme file change'
+          channel: '#github-eme-file-modification'
           status: ${{ job.status }}
           fields: |
             *Repo:* ${{ github.repository }}
