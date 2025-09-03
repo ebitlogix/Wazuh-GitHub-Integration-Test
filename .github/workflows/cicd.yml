@@ -17,10 +17,10 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Maven
-      run: mvn install
+      run: mvn install -f MyWebApp/pom.xml
     - uses: act10ns/slack@v2
       with:
-        channel: '#mar-2024-weekday-batch'
+        channel: '#github-eme-file-modification'
         status: ${{ job.status }}
         steps: ${{ toJson(steps) }}
       if: always()
