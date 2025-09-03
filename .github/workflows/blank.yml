@@ -1,0 +1,17 @@
+
+name: Monitor .eme file changes
+
+# Controls when the workflow will run
+on:
+  push:
+    paths:
+      - '**/*.eme'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report .eme file modification
+        run: |
+          echo "🚨 .eme file was modified in commit $GITHUB_SHA by $GITHUB_ACTOR"
