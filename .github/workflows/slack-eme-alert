@@ -17,6 +17,8 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
           SLACK_USERNAME: "GitHub Bot"
+          SLACK_CHANNEL: "github-eme-file-modification"
+          SLACK_COLOR: "#FF0000"
           SLACK_TITLE: "🚨 .eme file modified"
           SLACK_MESSAGE: |
             *Repo:* ${{ github.repository }}
