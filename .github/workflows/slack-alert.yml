@@ -3,7 +3,7 @@ name: Slack Alert on .eme File Changes
 on:
   push:
     paths:
-      - '**/*.eme'   # ✅ only trigger if .eme files are modified
+      - '**/*.env'   # ✅ only trigger if .eme files are modified
 
 jobs:
   alert:
@@ -19,7 +19,7 @@ jobs:
           SLACK_USERNAME: "GitHub Bot"
           SLACK_CHANNEL: "github-eme-file-modification"
           SLACK_COLOR: "#FF0000"
-          SLACK_TITLE: "🚨 .eme file modified"
+          SLACK_TITLE: "🚨 .env file modified"
           SLACK_MESSAGE: |
             *Repo:* ${{ github.repository }}
             *Branch:* ${{ github.ref_name }}
