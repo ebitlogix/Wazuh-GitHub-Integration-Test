@@ -1,9 +1,9 @@
-name: Slack Alert on .eme File Changes
+name: Slack Alert on .env File Changes
 
 on:
   push:
     paths:
-      - '**/*.env'   # ✅ only trigger if .eme files are modified
+      - '.env'   # Trigger only if .env file is modified
 
 jobs:
   alert:
@@ -15,14 +15,9 @@ jobs:
       - name: Send Slack alert
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
           SLACK_USERNAME: "GitHub Bot"
-          SLACK_CHANNEL: "github-eme-file-modification"
-          SLACK_COLOR: "#FF0000"
-          SLACK_TITLE: "🚨 .env file modified"
-          SLACK_MESSAGE: |
-            *Repo:* ${{ github.repository }}
-            *Branch:* ${{ github.ref_name }}
-            *Commit:* ${{ github.sha }}
-            *Actor:* ${{ github.actor }}
-            *Message:* ${{ github.event.head_commit.message }}
+          SLACK_CHANNEL: "#alerts"
+          SLACK_COLOR: "#FFA500"
+          SLACK_TITLE: "⚠️ .env File Modified"
+          SLACK_MESSAGE: "The *.env* file in `${{ github.repository }}` was modified by *${{ github.actor }}* in commit `${{ github.sha }}`"
