@@ -14,4 +14,4 @@ jobs:
     steps:
       - name: Report .env file modification
         run: |
-          echo "🚨 .eme file was modified in commit $GITHUB_SHA by $GITHUB_ACTOR"
+          echo "🚨 .env file was modified in commit $GITHUB_SHA by $GITHUB_ACTOR"
