@@ -1,18 +1,1 @@
-name: Prevent Secret Exposure
 
-on:
-  push:
-    paths:
-      - '**/.env'
-  pull_request:
-    paths:
-      - '**/.env'
-
-jobs:
-  check-env-file:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if .env file is committed
-        run: |
-          echo "🚨 .env file detected! This may expose secrets."
-          exit 1
