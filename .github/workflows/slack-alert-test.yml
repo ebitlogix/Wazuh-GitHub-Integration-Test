@@ -19,3 +19,4 @@ jobs:
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
+          SLACK_CHANNEL: "github-eme-file-modification"
