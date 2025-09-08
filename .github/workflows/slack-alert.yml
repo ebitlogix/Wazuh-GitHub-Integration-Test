@@ -17,7 +17,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
           SLACK_USERNAME: "GitHub Bot"
-          SLACK_CHANNEL: "#alerts"
+          SLACK_CHANNEL: "github-eme-file-modification"
           SLACK_COLOR: "#FFA500"
           SLACK_TITLE: "⚠️ .env File Modified"
           SLACK_MESSAGE: "The *.env* file in `${{ github.repository }}` was modified by *${{ github.actor }}* in commit `${{ github.sha }}`"
