@@ -22,7 +22,7 @@ jobs:
       run: |
     - uses: act10ns/slack@v2
       with:
-        channel: 'github-eme-file-modification'
+        channel: 'github-env-file-modification'
         status: ${{ job.status }}
         steps: ${{ toJson(steps) }}
       if: always()
