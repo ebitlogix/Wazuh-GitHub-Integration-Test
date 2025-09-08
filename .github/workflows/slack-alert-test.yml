@@ -1,4 +1,4 @@
-name: ALERT !!!
+name: .ENV File Modification Alert !!!
 on:
   push:
     branches:
