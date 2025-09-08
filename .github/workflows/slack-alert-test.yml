@@ -1,1 +1,24 @@
+name: Slack Alert on .env File Changes
+
+on:
+  push:
+    paths:
+      - '.env'   # Trigger only if .env file is modified
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Send Slack alert
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_GITHUB_INTEGRATION_URL }}
+          SLACK_USERNAME: "GitHub Bot"
+          SLACK_CHANNEL: "github-eme-file-modification"
+          SLACK_COLOR: "#FFA500"
+          SLACK_TITLE: "⚠️ .env File Modified"
+          SLACK_MESSAGE: "The *.env* file in `${{ github.repository }}` was modified by *${{ github.actor }}* in commit `${{ github.sha }}`"
 
