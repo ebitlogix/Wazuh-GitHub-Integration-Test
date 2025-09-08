@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - ".env"
+      - "*.env"
   workflow_dispatch:
 jobs:
   build:
