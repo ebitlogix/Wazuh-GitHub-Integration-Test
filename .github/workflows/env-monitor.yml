@@ -1,17 +1,1 @@
 
-name: Monitor .env file changes
-
-# Controls when the workflow will run
-on:
-  push:
-    paths:
-      - '**/*.env'
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  alert:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Report .env file modification
-        run: |
-          echo "🚨 .env file was modified in commit $GITHUB_SHA by $GITHUB_ACTOR"
